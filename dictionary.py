@@ -47,7 +47,7 @@ def get_meaning(word):
 
 
 if __name__=='__main__':
-    data=json.load(open("data.json"))
+    data=json.load(open("dictionary_webster.json"))
     s=str(input("Enter word : ").upper())
     output=get_meaning(s)
     if type(output)==list:
