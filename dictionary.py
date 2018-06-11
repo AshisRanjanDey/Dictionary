@@ -6,14 +6,14 @@ def get_meaning(word):
     if word in data:                                            #word is in dataionary
         return data[word]
 
-    elif word.title() in data:
-        return data[word.title()]
+    #elif word.title() in data:
+    #    return data[word.title()]
 
-    elif word.upper() in data:
-        return data[word.upper()]
+    #elif word.upper() in data:
+    #    return data[word.upper()]
 
-    elif len(gcm(word,data.keys(),n=5,cutoff=0.6))>0:
-        mtch_list=gcm(word,data.keys(),n=5,cutoff=0.6)            #other similar words in dictionary
+    elif len(gcm(word,data.keys(),n=11,cutoff=0.6))>0:
+        mtch_list=gcm(word,data.keys(),n=11,cutoff=0.6)            #other similar words in dictionary
         print('Do you mean %s?'%mtch_list[0])
         user_response=str(input('y means yes | n means no : '))
 
@@ -48,7 +48,7 @@ def get_meaning(word):
 
 if __name__=='__main__':
     data=json.load(open("data.json"))
-    s=str(input("Enter word : ").lower())
+    s=str(input("Enter word : ").upper())
     output=get_meaning(s)
     if type(output)==list:
         for item in output: print(item)
